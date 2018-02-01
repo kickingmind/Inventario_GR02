@@ -2,7 +2,7 @@
 
         <aside id="leftsidebar" class="sidebar">
             <!-- User Info -->
-            <div class="user-info">
+            <a href="/aplicacion"><div class="user-info">
                 <!--Aqui va el logo en CSS
 
                     .sidebar .user-info {
@@ -14,6 +14,7 @@
                     height: 135px;
                   }-->
             </div>
+            </a>
             <!-- #User Info -->
             <!-- Menu -->
             <div class="menu">
