@@ -46,7 +46,7 @@
 			                <th class="text-center">ID</th>
 			                <th>NOMBRE</th>
 			              
-			                <th class="td-actions text-right">EDITAR/ELIMINAR</th>
+			                <th class="td-actions text-right">EDITAR</th>
 
 			            </tr>
 			        </thead>
