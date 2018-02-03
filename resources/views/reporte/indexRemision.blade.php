@@ -26,7 +26,7 @@
 
                             <div class="table-responsive">
 
-
+<!-- <input type="text" value="" style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toLowerCase();"> -->
 
 
   <table id="example" class="table table-bordered table-hover" cellspacing="0" >

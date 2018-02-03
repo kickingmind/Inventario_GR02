@@ -68,6 +68,10 @@ route::post('reporte/productos_almacen',['as'=>'almacenpdf','uses'=>'PdfControll
 route::get('reporte/remision/{id}',['as'=>'remisionpdf','uses'=>'PdfController@remisionpdf']);
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+//ROUTAS PARA GENERAR REPORTES GRAFICOS
+route::post('reporte/grafico',['as'=>'reportegrafico','uses'=>'GraficoController@graficoPMSPM']);
+
+////////////////////////////////////////////////////////////////////////////////////////////////
 
 
 //ROUTAS PARA CONSULTAR PRODUCTOS Y REMISIONES

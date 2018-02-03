@@ -20,8 +20,6 @@ class ProductosController extends Controller
     //listar todos los productos
     public function index()
     {
-
-       
        
         $productoss = DB::table('productos')
        ->join('categorias_productos','categorias_productos.id' , '=' , 'productos.id_categoria')
@@ -68,22 +66,23 @@ class ProductosController extends Controller
 
         $now = new \DateTime();
         $fecha = $now->format('Ymd-His');
-        $numero = $request->get('codigo');
+        $codigo = $request->get('codigo');
         $archivo = $request->file('archivo');
         $nombre = "";
 
         if($archivo){
             $extension = $archivo->getClientOriginalExtension();
             //$nombre = "producto-".$numero."-".$fecha.".".$extension;
-            $nombre = "producto-".$numero.".".$extension;
+            $nombre = "producto-".$codigo.".".$extension;
             \Storage::disk('local')->put($nombre, \File::get($archivo));
         }
 
 
-
+       
          //Insertar la Información en la tabla
 
-
+           
+           
         
          $producto = Producto::create([
             'codigo'=>$request->get('codigo'),
@@ -93,8 +92,9 @@ class ProductosController extends Controller
             'id_almacen'=>$request->get('almacen'),
             'url_imagen'=>$nombre,
             'usuario'=>(Auth::user()->name),
-        ]);
 
+        ]);
+        
         return redirect()->route('productos.index');
 
 

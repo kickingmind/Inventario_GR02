@@ -159,7 +159,10 @@ $ProductoOriginal->cantidad-=$request->cantidad[$id];
 -entonces usando el signo RESTA la digo que lo que viene lo voy a resta, $request->cantidad[$id]; (por este valor).
 */
 $ProductoOriginal->save();/* ya luego al usar SAVE se activa automaticamente el update sin necesidad de hacer una preparacion y listo eso es todo wao interesante, por eso laravel es lo que es :D es mas facil cierto hacer muchas cosas, si entonces ya con esto es todo no ? eeee sii*/
+
+
 $salida = "salida";
+$fecha = now();
 DB::table('movimiento')->insert(
 [
 "id_productos"=>$producto->id,
@@ -168,8 +171,8 @@ DB::table('movimiento')->insert(
 "cantidad"=>$request->cantidad[$id],
 "tipo_movimiento"=>$salida,
 "realizadopor"=>Auth::user()->name,
+"created_at"=>$fecha,
 ]);
-
 
 }
 
