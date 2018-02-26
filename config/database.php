@@ -39,7 +39,7 @@ return [
             'prefix' => '',
         ],
 
-        'mysql' => [
+        'mysql' => [/*esta es la principal y no pasa nada :D  aaaaaa ok entiendo*/
             'driver' => 'mysql',
             'host' => env('DB_HOST', '127.0.0.1'),
             'port' => env('DB_PORT', '3306'),
@@ -50,9 +50,24 @@ return [
             'charset' => 'utf8mb4',
             'collation' => 'utf8mb4_unicode_ci',
             'prefix' => '',
-            'strict' => true,
+            'strict' =>false,
             'engine' => null,
         ],
+        /* 'nombre_de_la_conexion' => [
+            'driver' => 'mysql',
+            'host' => env('nuevo_nombre_DB_HOST', '127.0.0.1'),
+            'port' => env('nuevo_nombre_DB_PORT', '3306'),
+            'database' => env('nuevo_nombre_DB_DATABASE', 'forge'),//debes colocar ento en tu archivo
+            'username' => env('nuevo_nombre_DB_USERNAME', 'forge'),// .ENV ejemplo
+            'password' => env('nuevo_nombre_DB_PASSWORD', ''),//nuevo_nombre_DB_PASSWORD=123(clave)
+            'unix_socket' => env('DB_SOCKET', ''),
+            'charset' => 'utf8mb4',
+            'collation' => 'utf8mb4_unicode_ci',
+            'prefix' => '',
+            'strict' =>false,// aqui le dices si es conexion estricta o no y no i´mporta que este todo en comentario // no pasa nada esta es una segunda conexion
+            'engine' => null,
+            //puedes configurar todo lo que necesitas aqui
+        ],*/
 
         'pgsql' => [
             'driver' => 'pgsql',

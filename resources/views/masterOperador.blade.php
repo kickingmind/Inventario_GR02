@@ -82,7 +82,7 @@
     <!-- IZQUIERDA-Sidebar -->
 
       @include('secciones/sidebarOperador')
-
+           
     <!-- #END# Sidebar -->
 
 

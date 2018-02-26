@@ -44,8 +44,8 @@ th, td {
 
  <div align="right" style="font-size: 9px;">
  <?php
-$fecha = date("d-m-Y g:i a");
-echo "Remision realizado: ". $fecha;
+//$fecha = date("d-m-Y g:i a");
+echo "Remision realizado: ". $remision[0]->created_at;
 ?>
 </div>
 
@@ -62,8 +62,7 @@ echo "Remision realizado: ". $fecha;
 <div  style="float: left; font-size: 12px;">
  <p><strong>CODIGO :</strong> {{ $remision[0]->codigo_remision }}</p>
 
-    <p><strong>FECHA : </strong><?php $fecha = date("d-m-Y g:i a");
-    echo  $fecha;?> </p>
+    <p><strong>FECHA : </strong>{{ $remision[0]->created_at }}</p>
 
     <p><strong>SOLICITANTE :</strong> {{ $remision[0]->solcitante }}</p>
 </div>
@@ -83,7 +82,7 @@ echo "Remision realizado: ". $fecha;
 <table>
               <thead style="background-color: #DCDCDC;">
                   <tr>
-                      
+                      <th>N°</th>
                       <th>CODIGO PRODUCTO</th>
                        <th>DESCRIPCIÓN DEL PRODUCTO</th>
                        <th>CANTIDAD</th>
@@ -95,9 +94,10 @@ echo "Remision realizado: ". $fecha;
                   </tr>
               </thead>
               <tbody>
+                 <?php $i=1; ?>
                 @foreach ($remision as $item)
         <tr>
-            
+            <td><?php echo $i; ?></td>
             <td>{{ $item->codigo }}</td>
             <td>{{ $item->producto }}</td>
             <td>{{ $item->cantidad }}</td>
@@ -106,7 +106,7 @@ echo "Remision realizado: ". $fecha;
             
         </tr>
 
-
+     <?php $i++ ;?>
      @endforeach
 
               </tbody>

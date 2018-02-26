@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 30-01-2018 a las 06:05:13
+-- Tiempo de generación: 12-02-2018 a las 16:15:20
 -- Versión del servidor: 10.1.30-MariaDB
 -- Versión de PHP: 7.2.1
 
@@ -68,7 +68,8 @@ INSERT INTO `areas` (`id`, `nombre`) VALUES
 (1, 'Administractivo'),
 (2, 'Auxiliar de sistemas'),
 (3, 'Cartera'),
-(4, 'Auxiliar de archivo');
+(4, 'Auxiliar de archivo'),
+(5, 'Gestion humana');
 
 -- --------------------------------------------------------
 
@@ -89,7 +90,8 @@ CREATE TABLE `categorias_productos` (
 INSERT INTO `categorias_productos` (`id`, `nombre`) VALUES
 (1, 'Papeleria'),
 (2, 'Aseo'),
-(3, 'Cafeteria');
+(3, 'Cafeteria'),
+(4, 'Probando guardando');
 
 -- --------------------------------------------------------
 
@@ -109,7 +111,8 @@ CREATE TABLE `companias` (
 
 INSERT INTO `companias` (`id`, `nombre`) VALUES
 (1, 'Recordar S.A.S'),
-(2, 'Jardines de valledupar');
+(2, 'Jardines de valledupar'),
+(3, 'Barranquilla');
 
 -- --------------------------------------------------------
 
@@ -221,7 +224,7 @@ CREATE TABLE `movimiento` (
   `referencia` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `unidad` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `centrocosto` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
+  `created_at` date DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -230,37 +233,14 @@ CREATE TABLE `movimiento` (
 --
 
 INSERT INTO `movimiento` (`id`, `n_compra`, `n_remision`, `n_devolucion`, `id_productos`, `cantidad`, `observacion`, `tipo_movimiento`, `realizadopor`, `referencia`, `unidad`, `centrocosto`, `created_at`, `updated_at`) VALUES
-(6, NULL, 16, NULL, 2, 1, 'uno', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(7, NULL, 16, NULL, 4, 2, 'dos', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(8, NULL, 16, NULL, 12, 3, 'tres', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(9, NULL, 17, NULL, 12, 3, 'uno', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(10, NULL, 18, NULL, 7, 4, 'okkkk', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(11, NULL, 18, NULL, 3, 8, 'pkkk', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(12, NULL, 19, NULL, 4, 3, 'uno', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(13, NULL, 20, NULL, 2, 4, 'una tijera', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(14, NULL, 21, NULL, 2, 4, 'una tijera', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(15, NULL, 22, NULL, 2, 48, 'todo bien', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(16, NULL, 23, NULL, 13, 3, 'okokokokok', 'salida', 'Marcos Ortiz', NULL, NULL, NULL, NULL, NULL),
-(17, NULL, 24, NULL, 3, 2, 'okokok', 'salida', 'Marcos Ortiz', NULL, NULL, NULL, NULL, NULL),
-(18, NULL, 25, NULL, 5, 2, 'comercial', 'salida', 'Marcos Ortiz', NULL, NULL, NULL, NULL, NULL),
-(19, NULL, 26, NULL, 3, 1, 'bien bien bien', 'salida', 'Marcos Ortiz', NULL, NULL, NULL, NULL, NULL),
-(20, NULL, 26, NULL, 5, 1, 'bien bien bien......................', 'salida', 'Marcos Ortiz', NULL, NULL, NULL, NULL, NULL),
-(21, NULL, 27, NULL, 21, 1, 'bie........', 'salida', 'Marcos Ortiz', NULL, NULL, NULL, NULL, NULL),
-(22, NULL, 27, NULL, 3, 6, 'bie.....', 'salida', 'Marcos Ortiz', NULL, NULL, NULL, NULL, NULL),
-(23, NULL, 28, NULL, 23, 2, 'los guantes probando', 'salida', 'Ruth Gutierrez', NULL, NULL, NULL, NULL, NULL),
-(24, NULL, 29, NULL, 23, 1, 'bien bien pero no', 'salida', 'Ruth Gutierrez', NULL, NULL, NULL, NULL, NULL),
-(25, NULL, 29, NULL, 4, 1, NULL, 'salida', 'Ruth Gutierrez', NULL, NULL, NULL, NULL, NULL),
-(26, NULL, 29, NULL, 21, 1, NULL, 'salida', 'Ruth Gutierrez', NULL, NULL, NULL, NULL, NULL),
-(27, NULL, 29, NULL, 13, 1, 'ahi pero no', 'salida', 'Ruth Gutierrez', NULL, NULL, NULL, NULL, NULL),
-(28, NULL, 29, NULL, 12, 1, NULL, 'salida', 'Ruth Gutierrez', NULL, NULL, NULL, NULL, NULL),
-(29, NULL, 29, NULL, 3, 1, NULL, 'salida', 'Ruth Gutierrez', NULL, NULL, NULL, NULL, NULL),
-(30, NULL, 29, NULL, 8, 1, 'esta perfecto', 'salida', 'Ruth Gutierrez', NULL, NULL, NULL, NULL, NULL),
-(31, NULL, 29, NULL, 7, 1, NULL, 'salida', 'Ruth Gutierrez', NULL, NULL, NULL, NULL, NULL),
-(32, NULL, 29, NULL, 18, 1, 'perfect', 'salida', 'Ruth Gutierrez', NULL, NULL, NULL, NULL, NULL),
-(33, NULL, 29, NULL, 11, 1, 'ok esta este producto', 'salida', 'Ruth Gutierrez', NULL, NULL, NULL, NULL, NULL),
-(34, NULL, 30, NULL, 3, 1, 'prueba', 'salida', 'Ruth Gutierrez', NULL, NULL, NULL, NULL, NULL),
-(35, NULL, 31, NULL, 3, 3, 'color verdes', 'salida', 'Ruth Gutierrez', NULL, NULL, NULL, NULL, NULL),
-(36, NULL, 31, NULL, 12, 2, 'una prueba', 'salida', 'Ruth Gutierrez', NULL, NULL, NULL, NULL, NULL);
+(45, NULL, 39, NULL, 4, 2, 'ok', 'salida', 'Ruth Gutierrez', NULL, NULL, NULL, '2018-02-02', NULL),
+(46, NULL, 40, NULL, 4, 3, 'otro', 'salida', 'Marcos Ortiz', NULL, NULL, NULL, '2018-02-02', NULL),
+(47, NULL, 40, NULL, 27, 10, 'otro mas', 'salida', 'Marcos Ortiz', NULL, NULL, NULL, '2018-02-02', NULL),
+(48, NULL, 41, NULL, 27, 5, 'bien', 'salida', 'Marcos Ortiz', NULL, NULL, NULL, '2018-03-07', NULL),
+(49, NULL, 41, NULL, 4, 6, 'mejor', 'salida', 'Marcos Ortiz', NULL, NULL, NULL, '2018-03-07', NULL),
+(50, NULL, 41, NULL, 3, 2, 'producto con destino a chile', 'salida', 'Marcos Ortiz', NULL, NULL, NULL, '2018-03-07', NULL),
+(51, NULL, 42, NULL, 27, 4, 'salen 4 productos para arendy', 'salida', 'Marcos Ortiz', NULL, NULL, NULL, '2018-02-02', NULL),
+(52, NULL, 43, NULL, 4, 3, 'probando', 'salida', 'Marcos Ortiz', NULL, NULL, NULL, '2018-04-10', NULL);
 
 -- --------------------------------------------------------
 
@@ -329,27 +309,34 @@ CREATE TABLE `productos` (
 
 INSERT INTO `productos` (`id`, `codigo`, `nombre`, `cantidad`, `id_categoria`, `id_almacen`, `url_imagen`, `usuario`, `created_at`, `updated_at`) VALUES
 (2, '77489999885', 'Tijeras', 0, 2, 1, 'producto-77489999885.png', NULL, '2018-01-06 20:31:16', '2018-01-21 05:27:42'),
-(3, '7748123456999', 'lapicero kilometrico', 78, 1, 1, 'producto-7748123456999.jpg', NULL, NULL, '2018-01-29 22:30:00'),
-(4, '774896555', 'limpido', 17, 2, 2, 'producto-774896555.jpg', NULL, '2018-01-07 03:55:58', '2018-01-26 17:00:03'),
-(5, '6544565', 'limpido 03', 65, 2, 3, 'producto-6544565.jpg', NULL, '2018-01-07 04:27:56', '2018-01-26 01:31:16'),
+(3, '7748123456999', 'lapicero kilometrico negro', 76, 1, 1, 'producto-7748123456999.jpg', NULL, NULL, '2018-02-03 16:17:50'),
+(4, '774896555', 'limpido', 5, 2, 2, 'producto-774896555.jpg', NULL, '2018-01-07 03:55:58', '2018-02-10 23:19:55'),
+(5, '6544565', 'limpido 03', 61, 2, 3, 'producto-6544565.jpg', NULL, '2018-01-07 04:27:56', '2018-02-01 05:40:54'),
 (6, '12345888888', 'prueba', 56, 1, 3, 'producto-12345888888.jpg', NULL, '2018-01-07 05:24:09', '2018-01-07 05:24:09'),
 (7, '454541111111', 'Marcos Antonio Ortiz Manjarres', 93, 1, 3, 'producto-454541111111.jpg', NULL, '2018-01-07 05:26:26', '2018-01-26 17:00:04'),
 (8, '7749123456', 'mar antony', 22, 1, 4, 'producto-7749123456.jpg', NULL, '2018-01-07 05:30:20', '2018-01-26 17:00:04'),
-(11, '12456678ii', 'Marcos', 49, 3, 4, 'producto-12456678ii.jpg', NULL, '2018-01-09 05:18:44', '2018-01-26 17:00:04'),
 (12, '7748123456999333', 'prueba productos', 47, 3, 5, 'producto-7748123456999333.jpg', 'Marcos Ortiz', '2018-01-15 17:02:18', '2018-01-29 22:30:00'),
 (13, '454541231', 'iphone x', 96, 1, 3, 'producto-454541231.jpg', 'operador Prueba', '2018-01-15 17:09:50', '2018-01-26 17:00:03'),
 (14, '454541231', 'iphone x', 100, 1, 2, 'producto-454541231.jpg', 'operador Prueba', '2018-01-15 17:11:33', '2018-01-15 17:11:33'),
 (15, '454541231', 'iphone x', 100, 1, 2, 'producto-454541231.jpg', 'operador Prueba', '2018-01-15 17:12:06', '2018-01-15 17:12:06'),
 (16, '454541231', 'iphone x', 100, 1, 2, 'producto-454541231.jpg', 'operador Prueba', '2018-01-15 17:13:04', '2018-01-15 17:13:04'),
-(17, '1254878', 'TALONARIO RECIBO DE CAJA RECORDAR', 17, 1, 1, 'producto-1254878.jpg', 'Marcos Ortiz', '2018-01-18 01:32:28', '2018-01-18 01:32:28'),
+(17, '1254878', 'TALONARIO RECIBO DE CAJA RECORDAR', 8, 1, 1, 'producto-1254878.jpg', 'Marcos Ortiz', '2018-01-18 01:32:28', '2018-02-02 04:40:42'),
 (18, '7748123456', 'AZUCAR 500 GR', 51, 3, 2, 'producto-7748123456.jpg', 'Marcos Ortiz', '2018-01-26 03:31:17', '2018-01-26 17:00:04'),
 (19, '77481236545', 'aromaticas', 502, 1, 1, 'producto-77481236545.jpg', 'Marcos Ortiz', '2018-01-26 03:37:19', '2018-01-26 03:37:19'),
 (20, '74812455', 'AMBIENTADOR', 100, 2, 1, 'producto-74812455.jpg', 'Marcos Ortiz', '2018-01-26 03:40:22', '2018-01-26 03:40:22'),
 (21, '7714', 'Bolsas verdes grandes', 158, 3, 1, '', 'Marcos Ortiz', '2018-01-26 04:22:22', '2018-01-26 17:00:03'),
-(22, '774124', 'Cafe de colombia', 23, 3, 1, 'producto-774124.jpg', 'Hilmer', '2018-01-26 16:31:40', '2018-01-26 16:31:40'),
+(22, '774124', 'Cafe de colombia', 9, 3, 1, 'producto-774124.jpg', 'Hilmer', '2018-01-26 16:31:40', '2018-02-02 19:18:08'),
 (23, '77412488', 'Guantes de madrid', 1022, 2, 3, 'producto-77412488.jpg', 'Hilmer', '2018-01-26 16:36:29', '2018-01-26 17:00:03'),
 (24, '774812356', 'Aires acondicionado lg', 500, 1, 5, 'producto-774812356.jpg', 'Ruth Gutierrez', '2018-01-29 16:55:29', '2018-01-29 16:55:29'),
-(25, '774111', 'Pc mac 2050', 369, 1, 5, 'producto-774111.jpg', 'Hilmer', '2018-01-30 03:18:26', '2018-01-30 03:18:26');
+(25, '774111', 'Pc mac 2050', 369, 1, 5, 'producto-774111.jpg', 'Hilmer', '2018-01-30 03:18:26', '2018-01-30 03:18:26'),
+(26, '12345698', 'Probando producto', 1520, 3, 3, 'producto-12345698.jpg', 'operador Prueba', '2018-01-30 06:23:02', '2018-01-30 06:23:02'),
+(27, '712345689', 'Rema de papel reprograf', 230, 1, 4, 'producto-712345689.jpg', 'operador Prueba', '2018-01-30 20:47:01', '2018-02-03 04:20:39'),
+(28, '12456678ii', 'Prueba limpido', 120, 3, 5, 'producto-12456678ii.jpg', 'Marcos Ortiz', '2018-02-01 03:39:10', '2018-02-01 03:39:10'),
+(29, '44', 'hhh', 44, 2, 2, '', 'Marcos Ortiz', '2018-02-02 05:52:13', '2018-02-02 05:52:13'),
+(30, '55555', 'HIT NARANJA PIÑA', 454, 3, 2, 'producto-55555.jpg', 'Marcos Ortiz', '2018-02-02 06:09:49', '2018-02-02 06:09:49'),
+(31, '4569', 'Guardando probando seguro', 12356, 3, 4, '', 'Marcos Ortiz', '2018-02-02 13:08:31', '2018-02-02 13:08:31'),
+(32, '45690123', 'Prueba de guardado', 456, 2, 2, '', 'Marcos Ortiz', '2018-02-02 13:10:02', '2018-02-02 13:10:02'),
+(33, '9565458', 'Hit naranja pina', 124545, 3, 5, '', 'Marcos Ortiz', '2018-02-02 13:10:57', '2018-02-02 13:10:57');
 
 -- --------------------------------------------------------
 
@@ -392,22 +379,11 @@ CREATE TABLE `remision_salida` (
 --
 
 INSERT INTO `remision_salida` (`id`, `fecha`, `id_solicitante`, `compania`, `area`, `centroCosto`, `realizadopor`, `created_at`, `updated_at`) VALUES
-(16, '2018-01-19', 1, 2, 1, '100000000000000000000000000', '1', '2018-02-20 04:01:17', '2018-01-20 04:01:17'),
-(17, '2018-01-19', 1, 2, 2, '123456', '1', '2018-01-20 04:40:42', '2018-01-20 04:40:42'),
-(18, '2018-01-19', 1, 1, 2, '1000', '3', '2018-03-20 04:45:59', '2018-01-20 04:45:59'),
-(19, '2018-01-19', 3, 2, 1, '100089', '3', '2018-01-20 04:52:08', '2018-01-20 04:52:08'),
-(20, '2018-01-20', 3, 2, 1, '654', '3', '2018-01-20 05:12:39', '2018-01-20 05:12:39'),
-(21, '2018-01-20', 3, 2, 1, '654', '3', '2018-01-20 05:14:10', '2018-01-20 05:14:10'),
-(22, '2018-01-21', 1, 1, 2, '10231', '1', '2018-01-21 05:27:42', '2018-01-21 05:27:42'),
-(23, '2018-01-21', 3, 1, 2, '100232', '1', '2018-01-21 06:20:45', '2018-01-21 06:20:45'),
-(24, '2018-01-21', 3, 2, 1, '1001212', '1', '2018-01-21 20:33:45', '2018-01-21 20:33:45'),
-(25, '2018-01-21', 1, 2, 2, '100121', '1', '2018-01-21 20:45:41', '2018-01-21 20:45:41'),
-(26, '2018-01-25', 5, 2, 1, '1001210', '1', '2018-01-26 01:31:16', '2018-01-26 01:31:16'),
-(27, '2018-01-25', 4, 2, 2, '1001245', '1', '2018-01-26 04:36:31', '2018-01-26 04:36:31'),
-(28, '2018-01-26', 1, 2, 1, '100123', '5', '2018-01-26 16:43:47', '2018-01-26 16:43:47'),
-(29, '2018-01-26', 5, 1, 1, '100123', '5', '2018-01-26 17:00:03', '2018-01-26 17:00:03'),
-(30, '2018-01-26', 4, 2, 1, '454', '5', '2018-01-26 19:45:09', '2018-01-26 19:45:09'),
-(31, '2018-01-29', 4, 1, 1, '1001235', '5', '2018-01-29 22:30:00', '2018-01-29 22:30:00');
+(39, '2018-02-02', 5, 2, 2, '1001', 'Marcos Ortiz', '2018-02-03 03:46:56', '2018-02-03 03:46:56'),
+(40, '2018-02-02', 6, 2, 1, '1001', '1', '2018-02-03 04:02:26', '2018-02-03 04:02:26'),
+(41, '2018-02-02', 5, 1, 1, '1201', '1', '2018-02-03 04:06:55', '2018-02-03 04:06:55'),
+(42, '2018-02-02', 6, 2, 1, '1001', '1', '2018-02-03 04:20:39', '2018-02-03 04:20:39'),
+(43, '2018-02-10', 6, 1, 1, '10012', '1', '2018-02-10 23:19:55', '2018-02-10 23:19:55');
 
 -- --------------------------------------------------------
 
@@ -455,10 +431,11 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `cedula`, `name`, `email`, `id_area`, `id_compania`, `user`, `password`, `id_perfil`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, NULL, 'Marcos Ortiz', 'ing.marcosortiz@hotmail.com', NULL, NULL, NULL, '$2y$10$8niqqGSzm7wyoQXowl6EG.o3LJ3gEpMs5S2JiapLhGCnCho8RQ7fy', 3, '7H8TdQQMXXqypwMf7GJIXTVDzexTZGWbJtvsFaHbwpd6z44KOsET3Ch7mB2F', '2018-01-12 23:53:30', '2018-01-12 23:53:30'),
-(3, NULL, 'operador Prueba', 'operador@prueba.com', NULL, NULL, NULL, '$2y$10$AdbxCEIn1eLDxc9Z6..bsOlqO7i24Ho8onu4KZK9W3F4mCB3BuIJu', 4, 'xSEfVNvoinxWhEIX8S7EHSMZ2cne4XOBpeE37ZVezshoosEtQgm7GHVvx2tx', '2018-01-15 01:00:04', '2018-01-15 01:00:04'),
-(4, NULL, 'Hilmer', 'prueba@prueba.com', NULL, NULL, NULL, '$2y$10$KDVry4RII2v8fDARBllsM.iGWEn7cVWchq41uElvZtsg.86J68AH.', 4, 'UAOiH4fCOsxYC7UNvomqMmnHdbDqttD9HNUMRRGYKUgNiuN3oQqzakDWqnhQ', '2018-01-24 14:41:05', '2018-01-24 14:41:05'),
-(5, NULL, 'Ruth Gutierrez', 'compras.valledupar@gruporecordar.com.co', NULL, NULL, NULL, '$2y$10$prhQbSK4HyosogxIMK3MFeio1bgFHze6xwvoG/7P1.ndTYq3STfeS', 3, '3haFF2WI2eweZtnCth2nMyT4tsmCh8iLUn08eqY8E01z7ANGCTH7AJQVhv5M', '2018-01-24 15:21:52', '2018-01-24 15:21:52');
+(1, NULL, 'Marcos Ortiz', 'ing.marcosortiz@hotmail.com', NULL, NULL, NULL, '$2y$10$8niqqGSzm7wyoQXowl6EG.o3LJ3gEpMs5S2JiapLhGCnCho8RQ7fy', 3, 'Nge5QPU6RHZapKmbzC44HvYjLFpwG9mzhQro7gYnpIQHKWUuQup2t9mIiLmU', '2018-01-12 23:53:30', '2018-01-12 23:53:30'),
+(3, NULL, 'operador Prueba', 'operador@prueba.com', NULL, NULL, NULL, '$2y$10$AdbxCEIn1eLDxc9Z6..bsOlqO7i24Ho8onu4KZK9W3F4mCB3BuIJu', 4, 'NoLADaZYvJ9tG1m8HqOuF2JeHlP8fu8ootJvvlTlG96NraAGECxNOwBjppDX', '2018-01-15 01:00:04', '2018-01-15 01:00:04'),
+(4, NULL, 'Hilmer', 'prueba@prueba.com', NULL, NULL, NULL, '$2y$10$KDVry4RII2v8fDARBllsM.iGWEn7cVWchq41uElvZtsg.86J68AH.', 5, 'UAOiH4fCOsxYC7UNvomqMmnHdbDqttD9HNUMRRGYKUgNiuN3oQqzakDWqnhQ', '2018-01-24 14:41:05', '2018-01-24 14:41:05'),
+(5, NULL, 'Ruth Gutierrez', 'compras.valledupar@gruporecordar.com.co', NULL, NULL, NULL, '$2y$10$prhQbSK4HyosogxIMK3MFeio1bgFHze6xwvoG/7P1.ndTYq3STfeS', 3, 'sCeHNCPQatEPLNNQaLrwxEIYy0fhb7q5gHy8rxt59epXMTHeMstuVJImjsVZ', '2018-01-24 15:21:52', '2018-01-24 15:21:52'),
+(6, NULL, 'Arendy Gutierrez', 'funeraria.valledupar@gruporecordar.com.co', NULL, NULL, NULL, '$2y$10$t2JXI2xqti2.xM95KqTcVeMpVKKY77W1ZWv0j816jl513KidlF5EC', 4, NULL, '2018-02-02 00:40:08', '2018-02-02 00:40:08');
 
 --
 -- Índices para tablas volcadas
@@ -591,19 +568,19 @@ ALTER TABLE `almacen`
 -- AUTO_INCREMENT de la tabla `areas`
 --
 ALTER TABLE `areas`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de la tabla `categorias_productos`
 --
 ALTER TABLE `categorias_productos`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `companias`
 --
 ALTER TABLE `companias`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `compra_entrada`
@@ -633,7 +610,7 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT de la tabla `movimiento`
 --
 ALTER TABLE `movimiento`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
 
 --
 -- AUTO_INCREMENT de la tabla `perfiles`
@@ -645,7 +622,7 @@ ALTER TABLE `perfiles`
 -- AUTO_INCREMENT de la tabla `productos`
 --
 ALTER TABLE `productos`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
 -- AUTO_INCREMENT de la tabla `proveedores`
@@ -657,7 +634,7 @@ ALTER TABLE `proveedores`
 -- AUTO_INCREMENT de la tabla `remision_salida`
 --
 ALTER TABLE `remision_salida`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
 
 --
 -- AUTO_INCREMENT de la tabla `solicitud`
@@ -669,7 +646,7 @@ ALTER TABLE `solicitud`
 -- AUTO_INCREMENT de la tabla `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- Restricciones para tablas volcadas

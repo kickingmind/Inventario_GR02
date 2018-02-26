@@ -112,6 +112,8 @@
     <!--<script src="plugins/node-waves/waves.js"></script>-->
 {!! Html::script('assets/plugins/node-waves/waves.js') !!}
 
+
+
 <!-- SweetAlert Plugin Js -->
 {!! Html::script('assets/js/sweetalert2.js') !!}
 

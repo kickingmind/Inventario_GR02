@@ -6,6 +6,9 @@ Route::get('/', function () {
     return view('index');
 });
 
+Route::get('/errors', function () {
+    return view('errors.500');
+});
 
 //route::prefix('admin')->middleware('auth')->group(function(){
 
@@ -35,8 +38,7 @@ Auth::routes();
 
 //Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/operador', 'OperadorController@listarProductos');
-route::get('operadorReporte',['as'=>'opereporte','uses'=>'OperadorController@reporteProductos']);
+
 
 Route::get('/listado_producto', 'Listado_ProductosController@index');
 //Administrador
@@ -70,7 +72,7 @@ route::get('reporte/remision/{id}',['as'=>'remisionpdf','uses'=>'PdfController@r
 
 //ROUTAS PARA GENERAR REPORTES GRAFICOS
 route::post('reporte/grafico',['as'=>'reportegrafico','uses'=>'GraficoController@graficoPMSPM']);
-
+route::get('reporte/graficoProducto/{codigo}',['as'=>'reportegraficoProducto','uses'=>'GraficoController@graficoPP']);
 ////////////////////////////////////////////////////////////////////////////////////////////////
 
 
@@ -79,4 +81,13 @@ route::get('consultar/productos',['as'=>'consultaProductos','uses'=>'ReporteCont
 route::get('consultar/remision',['as'=>'consultaRemision','uses'=>'ReporteController@indexRemision']);
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+//ROUTAS PARA OPERADOR
+Route::get('/operador', 'OperadorController@listarProductos');
+route::get('operadorReporte',['as'=>'opereporte','uses'=>'OperadorController@reporteProductos']);
+route::get('operador/consulta/remision',['as'=>'operconremision','uses'=>'OperadorController@indexRemision']);
+route::post('operador/grafico',['as'=>'opergrafico','uses'=>'OperadorController@graficoPMSPM']);
+route::get('operador/graficoProducto/{codigo}',['as'=>'opergrafproducto','uses'=>'OperadorController@graficoPP']);
 
+
+#######################################################################
+//ROUTAS PARA REALIZAR LA ENTRADA DEL PRODUCTO

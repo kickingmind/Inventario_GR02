@@ -16,6 +16,8 @@
                                 <b>CONTROL DE INVENTARIO COMPRAS</b>
                                 
                             </h2>
+
+                          
                       
                         </div>
                         <div class="body">

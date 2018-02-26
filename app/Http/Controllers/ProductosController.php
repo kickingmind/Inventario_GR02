@@ -154,7 +154,7 @@ class ProductosController extends Controller
         $productos->nombre = $request->get('nombre');
         $productos->cantidad = $request->get('cantidad');
         $productos->id_categoria = $request->get('idcategoria');
-        $productos->almacen = $request->get('almacen');
+        $productos->id_almacen = $request->get('almacen');
         if($archivo){            
             $productos->url_imagen = $nombre;
         }

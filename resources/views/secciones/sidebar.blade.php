@@ -39,12 +39,14 @@
                                     <span>Compra Entrada</span>
                            </a>
                             </li> -->
-
-                            <li>
+                        
+                          <li>
                             <a href="javascript:void(0);" >
                                     <span>Devolución</span>
                            </a>
                             </li>
+                                             
+                            
 
                         </ul>
                     </li>
@@ -124,10 +126,27 @@
                             </li>
 
                            <!-- <li>
-                            <a href="{{ route('perfiles.index') }}" >
+                            <a href="{//{ route('perfiles.index') }}" >
                                     <span>Nuevo Perfil</span>
                            </a>
                             </li> -->
+
+                        </ul>
+                    </li>
+
+
+                            <li >
+                        <a href="javascript:void(0);" class="menu-toggle">
+                            <i class="material-icons">swap_horiz</i>
+                            <span>RELIZAR ENTRADA</span>
+                        </a>
+                        <ul class="ml-menu">
+                            <li>
+                            <a href="javascript:void(0);" >
+                                    <span>Nueva entrada</span>
+                           </a>
+
+                            </li>
 
                         </ul>
                     </li>
@@ -145,7 +164,7 @@
                     &copy; 2018
                 </div>
                 <div class="version">
-                    <b>Version: </b> 1.0.1
+                    <b>Version: </b> 2.0.1
                 </div>
             </div>
             <!-- #Footer -->

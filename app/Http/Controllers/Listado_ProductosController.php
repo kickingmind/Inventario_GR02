@@ -8,6 +8,7 @@ use App\Producto;
 use App\Cat_producto;
 use app\Almacen;
 use DB;
+use Auth;
 
 class Listado_ProductosController extends Controller
 {
@@ -15,7 +16,7 @@ class Listado_ProductosController extends Controller
 
    public function __construct()
     {
-      $this->middleware(['auth','admin']);
+      $this->middleware(['auth']);
    }	
 
    //listar todos los productos
@@ -28,7 +29,14 @@ class Listado_ProductosController extends Controller
        ->select('productos.id', 'productos.codigo', 'productos.nombre' , 'productos.cantidad' ,'categorias_productos.nombre as nombre_categoria', 'almacen.nombre as almacen', 'productos.url_imagen')
        ->get();
        
-        return view('listado_producto.index',compact('productoss'));
+        //return view('listado_producto.index',compact('productoss'));
+
+
+        if ((Auth::user()->id_perfil ==3 )) {
+           return view('listado_producto.index',compact('productoss'));
+       }else{
+         return view('operador.listado_productos',compact('productoss'));
+       }
    
     }
 }

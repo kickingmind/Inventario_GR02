@@ -14,6 +14,15 @@ use DB;
 
 class ReporteController extends Controller
 {
+    
+
+ public function __construct(){
+ 
+      $this->middleware(['auth','admin']);
+
+     }
+
+
     public function indexProductos(){
 
 
@@ -21,6 +30,7 @@ class ReporteController extends Controller
        ->join('categorias_productos','categorias_productos.id' , '=' , 'productos.id_categoria')
        ->join('almacen','almacen.id' , '=' , 'productos.id_almacen')
        ->select('productos.id', 'productos.codigo', 'productos.nombre' , 'productos.cantidad' ,'categorias_productos.nombre as nombre_categoria', 'almacen.nombre as almacen', 'productos.url_imagen')
+       ->orderBy('productos.nombre','asc')
        ->get();
 
        $almacen = Almacen::orderBy('nombre','asc')->pluck('nombre','id');

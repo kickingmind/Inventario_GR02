@@ -1,4 +1,4 @@
-@extends('master')
+@extends('masterOperador')
 
 @section('contenido')
 
@@ -123,18 +123,11 @@
 
 @if(count($remision))
 
-<?php 
-echo (count($remision));
-
-
-?>
-
 
 <table  class="table table-bordered table-hover" cellspacing="0" >
 			        <thead>
 			            <tr>
-                      <th class="text-center">N°</th>
-			                
+			                <th class="text-center">ID</th>
 			                <th>CODIGO</th>
 			                 <th>DESCRIPCION DEL PRODUCTO O SERVICIOS</th>
 			                 <th>CANTIDAD</th>
@@ -143,12 +136,10 @@ echo (count($remision));
 			            </tr>
 			        </thead>
 			        <tbody>
-              <?php $i=1; ?>
+         
 			          @foreach ($remision as $item)
-                
         <tr >
-            <td class="text-center"> <?php echo $i; ?> </td>
-            
+            <td class="text-center">{{ $item->id }}</td>
             <td class="text-left">{{ $item->codigo }}</td>
             <td class="text-left">{{ $item->nombre }}</td>
             <td style="color: #FB0303;" class="text-left">
@@ -163,7 +154,6 @@ echo (count($remision));
             </td>
        
         </tr>
-        <?php $i++ ;?>
      @endforeach
 
 			        </tbody>

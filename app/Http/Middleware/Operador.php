@@ -18,13 +18,10 @@ class Operador
     public function handle($request, Closure $next)
     {
 
-
-       if (Auth::user()->id_perfil == 4) {
-        return redirect()->to('/operador');
+          $usuario_actual=\Auth::user();
+       if ($usuario_actual->id_perfil != 4) {
+        return redirect()->back();
        }
-
-
-
         return $next($request);
     }
 }

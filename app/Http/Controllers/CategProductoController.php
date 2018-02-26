@@ -11,6 +11,11 @@ use Auth;
 class CategProductoController extends Controller
 {
     
+    public function __construct(){
+ 
+      $this->middleware(['auth','admin']);
+
+     }
 
 
 

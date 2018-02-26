@@ -1,4 +1,4 @@
-@extends('master')
+@extends('masterOperador')
 
 @section('contenido')
 
@@ -14,20 +14,12 @@
                     <div class="card">
                        <div class="header">
                             <h2 style="color: #03a9f4 !important;">
-                                <b>PRODUCTOS</b>
+                                <div align="center"><b>LISTADO DE PRODUCTOS</b></div>
 
                             </h2>
 
                              <ul class="header-dropdown m-r--5">
-                          <a href="{{ route('productos.create') }}"><button type="button" class="btn bg-blue waves-effect"
-                           data-toggle="modal" data-target="#myModal">
-
-                                    <i class="material-icons">add</i>
-                                    <span>NUEVO PRODUCTOS</span>
-                          </button>
-                          </a>
                         
-                  
 
                         </div>
 
@@ -50,7 +42,7 @@
 			                 <th>CATEGORIA</th>
 			                 <th>ALMACEN</th>
 			                 <th>IMAGEN</th>
-			                <th class="td-actions text-right">EDITAR</th>
+			                <th class="td-actions text-right">AGREGAR</th>
 
 			            </tr>
 			        </thead>
@@ -65,20 +57,12 @@
             <td class="text-left">{{ $producto->almacen }}</td>
             <td class="text-left"><img src="{{ asset('imageProducto/'.$producto->url_imagen.'') }}" width="50" height="80"></td>
             <td class="td-actions text-right">
-              <a href="{{ route('productos.edit',$producto->id)}}" >
-                <button>
-                 <i style="color:#60B96B; " class="material-icons" >mode_edit</i>
-                 </button title="Editar">
+              <a href="{{ route('agregar-remision',$producto->id)}}" >
+                
+                 <i class="material-icons">queue</i>
+                 
                 </a>
-               
-            
-              <!-- {/*!! Form::open(['route' => ['productos.destroy', $producto->id]]) !!}
-                <input type="hidden" name="_method" value="DELETE">
-                <button onClick="return confirm('Eliminar Este Producto?')">
-                 <i style="color:#F12828;"  class="material-icons">delete_forever</i>
-                </button>   -->
-           <!-- {/*!! Form::close() !!} -->
-
+              
             </td>
         </tr>
      @endforeach

@@ -161,7 +161,7 @@
             <td class="text-left">{{ $producto->almacen }}</td>
             <td class="text-left"><img src="{{ asset('imageProducto/'.$producto->url_imagen.'') }}" width="50" height="80"></td>
             <td class="td-actions text-right">
-              <a href="{{ route('productos.edit',$producto->id)}}" >
+              <a href="{{ route('reportegraficoProducto',$producto->codigo)}}" >
                 <button class="btn btn-primary btn-sm">
                  <i class="material-icons">trending_up</i>
                  Consultar

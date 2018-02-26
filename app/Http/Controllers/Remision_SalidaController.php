@@ -20,7 +20,7 @@ class Remision_SalidaController extends Controller
       //funcion para crear la variable sesion
  public function __construct(){
  
-  $this->middleware(['auth','admin']);
+  $this->middleware(['auth']);
 
 
  	if (!Session::has('remision'))  {
@@ -46,7 +46,14 @@ class Remision_SalidaController extends Controller
 
        $remision = Session::get('remision');
        //return $remision;
-  return view('remision',compact('remision','solicitante','compania','area','productoss'));
+  //return view('remision',compact('remision','solicitante','compania','area','productoss'));
+    
+       
+       if ((Auth::user()->id_perfil ==3 )) {
+           return view('remision',compact('remision','solicitante','compania','area','productoss'));
+       }else{
+         return view('remisionOperador',compact('remision','solicitante','compania','area','productoss'));
+       }
 	  }
 
     //funcion para agregar items de productos a remision
@@ -118,9 +125,17 @@ foreach($_POST["id"] as $b=>$a)
        //$producto = Producto::find($id);
        //$remision[$producto->id]->cantidad = $cantidad;
        //Session::put('remision',$remision);
-  return view('detalle_remision',compact('remision','solicitante','compania','area','cantidad','codigoo'));
+  //return view('detalle_remision',compact('remision','solicitante','compania','area','cantidad','codigoo'));
        //$cantidad =  $request->get('observacion');
       // $cantidad =  $request->get('cantidad');
+
+      if ((Auth::user()->id_perfil ==3 )) {
+       return view('detalle_remision',compact('remision','solicitante','compania','area','cantidad','codigoo'));
+       }else{
+       return view('operador.detalle_remision',compact('remision','solicitante','compania','area','cantidad','codigoo'));
+       }
+
+
        
       }
 
@@ -178,12 +193,20 @@ DB::table('movimiento')->insert(
 
 
 
+        //Session::forget('remision');
+        //return redirect()->route('consultaRemision');/*ya aqui rediri ya lo que faltaria era hacerlo qye se exporte a pdf la remision y listo, bueno ya ahi tienes todos los datos alli arriba los mandas qa variable y listo usas una libreria que sea compatible con LARAVEL para hacerlo mas facil cual recomienda aun no he usado PDF con laravel jajajaja no me ha tocado todos los reportes los hace por html al correo o en el sistema osea q en ves de reporte pdf se lo envia es al correo y listo, puede ser o poner todo en html y usas un javascrit que es window.print();*/
+
+
+       if ((Auth::user()->id_perfil ==3 )) {
         Session::forget('remision');
-        return redirect()->route('consultaRemision');/*ya aqui rediri ya lo que faltaria era hacerlo qye se exporte a pdf la remision y listo, bueno ya ahi tienes todos los datos alli arriba los mandas qa variable y listo usas una libreria que sea compatible con LARAVEL para hacerlo mas facil cual recomienda aun no he usado PDF con laravel jajajaja no me ha tocado todos los reportes los hace por html al correo o en el sistema osea q en ves de reporte pdf se lo envia es al correo y listo, puede ser o poner todo en html y usas un javascrit que es window.print();*/
-        
+        return redirect()->route('consultaRemision');
 
-    } 
+       }else{
+        Session::forget('remision');
+        return redirect()->route('operconremision');
+       }
 
 
+     }
 
 }

@@ -1,4 +1,4 @@
-@extends('master')
+@extends('masterOperador')
 
 @section('contenido')
 

@@ -1,4 +1,4 @@
-  <section>
+gh  <section>
 
         <aside id="leftsidebar" class="sidebar">
             <!-- User Info -->
@@ -23,14 +23,14 @@
                    <li >
                         <a href="javascript:void(0);" class="menu-toggle">
                             <i class="material-icons">add</i>
-                            <span>NUEVO</span>
+                            <span>REALIZAR REMISION</span>
                         </a>
                         <ul class="ml-menu">
                          
 
                             <li>
-                            <a href="/operador" >
-                                    <span>Nuevo Productos</span>
+                            <a href="/remision" >
+                                    <span>Nueva Remision</span>
                            </a>
                             </li>
 
@@ -48,6 +48,12 @@
                                     <span>Consultar Productos</span>
                            </a>
 
+                            </li>
+
+                            <li>
+                            <a href="{{ route('operconremision') }}" >
+                                    <span>Consultar Remision salida</span>
+                           </a>
                             </li>
 
                         </ul>

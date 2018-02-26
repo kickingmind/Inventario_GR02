@@ -76,13 +76,13 @@ class PdfController extends Controller
            
        //dd($remision[0]->area);
        
-            
+        $fechamostrar = Remision_salida::all();
  
 
        $pdf = \App::make('dompdf.wrapper');
 
        
-       $vista =\View('pdf.remisionpdf',compact('remision'))->render();
+       $vista =\View('pdf.remisionpdf',compact('remision','fechamostrar'))->render();
        $pdf->loadHTML($vista);
        return $pdf->stream('Remision_N_'.$id.'.pdf');
        
