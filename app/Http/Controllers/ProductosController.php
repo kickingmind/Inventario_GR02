@@ -176,4 +176,51 @@ class ProductosController extends Controller
 
         return redirect()->route('productos.index');   
     }
+
+    public function editNuevaCantidad($id)
+    {
+        //Validar la informacion ingresada
+
+        $this->validate($request, [
+            'codigo' => 'required',
+            'nombre' => 'required',
+            'cantidad' => 'required|numeric',
+            'idcategoria' => 'required',
+            'almacen' => 'required',
+            'archivo' => 'mimes:jpeg,png'
+           
+        ]); 
+
+       //Cambiar nombre y actualizar el archivo
+
+        $now = new \DateTime();
+        $fecha = $now->format('Ymd-His');
+        $numero = $request->get('codigo');
+        $archivo = $request->file('archivo');
+        $nombre = "";
+
+        if($archivo){
+            $extension = $archivo->getClientOriginalExtension();
+            //$nombre = "producto-".$numero."-".$fecha.".".$extension;
+            $nombre = "producto-".$numero.".".$extension;
+            \Storage::disk('local')->put($nombre, \File::get($archivo));
+        }
+
+
+        //actualizar la nueva informacion
+        $productos = Producto::find($id);
+        $productos->codigo = $request->get('codigo');
+        $productos->nombre = $request->get('nombre');
+        $productos->cantidad = $request->get('cantidad');
+        $productos->id_categoria = $request->get('idcategoria');
+        $productos->id_almacen = $request->get('almacen');
+        if($archivo){            
+            $productos->url_imagen = $nombre;
+        }
+        
+        $productos->save();
+
+        return redirect()->route('productos.index');
+   
+    }
 }

@@ -91,3 +91,10 @@ route::get('operador/graficoProducto/{codigo}',['as'=>'opergrafproducto','uses'=
 
 #######################################################################
 //ROUTAS PARA REALIZAR LA ENTRADA DEL PRODUCTO
+
+Route::get('entrada',['as'=>'entrada','uses'=>'Entrada_productosController@show']);
+Route::get('entrada/agregar/{id}',['as'=>'agregar-entrada','uses'=>'Entrada_productosController@add']);
+Route::get('entrada/borrar/{id}',['as'=>'entrada-borrar','uses'=>'Entrada_productosController@delete']);
+Route::get('entrada/vaciar',['as'=>'entrada-vaciar','uses'=>'Entrada_productosController@trash']);
+Route::post('entrada/detalle_entrada',['as'=>'detalle-entrada','uses'=>'Entrada_productosController@detalleRemision']);
+Route::post('entrada/guardar',['as'=>'guardar-entrada','uses'=>'Entrada_productosController@guardar']);

@@ -142,7 +142,7 @@
                         </a>
                         <ul class="ml-menu">
                             <li>
-                            <a href="javascript:void(0);" >
+                            <a href="{{ route('entrada') }}" >
                                     <span>Nueva entrada</span>
                            </a>
 

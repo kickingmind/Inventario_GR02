@@ -8,7 +8,7 @@
 
 
 
-           <!-- Basic Examples -->
+          <!-- Basic Examples -->
             <div class="block-header">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="card">
@@ -65,12 +65,13 @@
             <td class="text-left">{{ $producto->almacen }}</td>
             <td class="text-left"><img src="{{ asset('imageProducto/'.$producto->url_imagen.'') }}" width="50" height="80"></td>
             <td class="td-actions text-right">
-              <a href="{{ route('productos.edit',$producto->id)}}" >
-                <button>
-                 <i style="color:#60B96B; " class="material-icons" >mode_edit</i>
-                 </button title="Editar">
+                <a href="{{ route('productos.edit',$producto->id)}}" >
+                
+                Editar datos
                 </a>
-               
+                <a href="{{ route('productos.edit',$producto->id)}}" >
+                        Editar nueva cantidad
+                </a>
             
               <!-- {/*!! Form::open(['route' => ['productos.destroy', $producto->id]]) !!}
                 <input type="hidden" name="_method" value="DELETE">
