@@ -1,4 +1,4 @@
-# Inventario_GR02
+# Inventario Para Bodega
 
 Aplicacion web desarollado a la medida del cliente. Usando laravel y mysql. 
 
