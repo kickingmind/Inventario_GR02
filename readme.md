@@ -1,6 +1,6 @@
 # Inventario Para Bodega
 
-Aplicacion web desarollado a la medida del cliente. Usando laravel con Vuejs y mysql. 
+Aplicacion web desarrollado a la medida del cliente. Usando laravel con Vuejs y mysql. 
 
 El software se encarga de llevar un control del ingreso de productos, organizado por categoría y sedes. 
 
