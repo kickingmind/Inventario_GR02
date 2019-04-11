@@ -1,5 +1,7 @@
 # Inventario Para Bodega
-
+<p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg">
+<img src="https://hollowtree.gallerycdn.vsassets.io/extensions/hollowtree/vue-snippets/0.1.11/1548604806888/Microsoft.VisualStudio.Services.Icons.Default">
+</p>
 Aplicacion web desarrollado a la medida del cliente. Usando laravel con Vuejs y mysql. 
 
 El software se encarga de llevar un control del ingreso de productos, organizado por categoría y sedes. 
